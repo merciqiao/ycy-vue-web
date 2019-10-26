@@ -18,12 +18,27 @@ const routes = [
   {
     path: '/new',
     name: 'new',
-    component: () => import('../views/New.vue')
+    component: () => import('../views/5.4/New.vue')
   },
   {
     path: '/new2',
     name: 'new2',
-    component: () => import('../views/New2.vue')
+    component: () => import('../views/6.1/New2.vue')
+  },
+  {
+    path: '/parent',
+    name: 'parent',
+    component: () => import('../views/6.1/Parent.vue')
+  },
+  {
+    path: '/child',
+    name: 'child',
+    component: () => import('../views/6.1/Child.vue')
+  },
+  {
+    path: '/lifecycle',
+    name: 'lifecycle',
+    component: () => import('../views/6.1/Lifecycle.vue')
   }
 ]
 
