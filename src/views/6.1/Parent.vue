@@ -23,6 +23,12 @@
        <Child2></Child2>
        ---------------------------------------
         <Child3></Child3>
+         ---------------------------------------
+        <Child4 :genderList="genderList"></Child4>
+        <div>
+            <input type="button" @click="showGenders" value="父页查看性别按钮">
+        </div>
+
   </div>
 </template>
 
@@ -31,6 +37,7 @@
 import Child from './Child.vue'
 import Child2 from './Child2'
 import Child3 from './Child3'
+import Child4 from './Child4'
 export default {
     name:'parent',
     data() {
@@ -40,13 +47,15 @@ export default {
                 city:'北京'
             },
             city:'北京',
+            genderList:[],
         }
     },
     //注册子组件
     components:{
         Child,
         Child2,
-        Child3
+        Child3,
+        Child4
     },
     methods: {
         //监听子组件的方法
@@ -56,6 +65,9 @@ export default {
         //父组件调用子组件
         callChild(){
             this.$refs.refChild.fromParent('父组件的参数111');
+        },
+        showGenders(){
+            console.log("父页性别列表是：",this.genderList.toString());
         }
     },
 }

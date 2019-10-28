@@ -39,7 +39,8 @@ const routes = [
     path: '/lifecycle',
     name: 'lifecycle',
     component: () => import('../views/6.1/Lifecycle.vue')
-  }
+  },
+
 ]
 
 const router = new VueRouter({
