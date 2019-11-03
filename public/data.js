@@ -1,0 +1,11 @@
+{
+    getStudentInfo:[
+        {
+            name:'张三',
+            city:'北京'
+        },{
+            name:'李四',
+            city:'上海'
+        }
+    ]
+}

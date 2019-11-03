@@ -40,7 +40,11 @@ const routes = [
     name: 'lifecycle',
     component: () => import('../views/6.1/Lifecycle.vue')
   },
-
+  {
+    path: '/test01',
+    name: 'test01',
+    component: () => import('../views/test/test01.vue')
+  },
 ]
 
 const router = new VueRouter({

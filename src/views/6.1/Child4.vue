@@ -15,6 +15,16 @@
     <div>
         <input type="button" @click="showGenders" value="子页查看性别">
     </div>
+    <div>
+      method和componets比较
+      <div>{{getAB()}}</div> 
+      <div>{{getAB2}}</div>
+      <div>
+        <input type="button" value="执行B+1" @click="BAdd">
+        <input type="button" value="读取AB" @click="ShowAB">
+      </div>
+      
+    </div>
   </div>
 </template>
 
@@ -44,6 +54,8 @@ export default {
         }
       ],
     //   genderList:[]
+      a:1,
+      b:2,
     };
   },
   props:{
@@ -52,10 +64,25 @@ export default {
   methods: {
       showGenders(){
           console.log("子页性别列表是：",this.genderList.toString());
+      },
+      getAB(){
+        console.log("getAB")
+          return this.a+this.b;
+      },
+      BAdd(){
+        this.b+=1;
+      },
+      ShowAB(){
+        this.getAB();
+        var a=this.getAB2;
       }
+  },
+  computed: {
+    getAB2(){
+      console.log("getAB2")
+      return this.a+this.b;
+    }
   },
 };
 </script>
 
-<style>
-</style>
