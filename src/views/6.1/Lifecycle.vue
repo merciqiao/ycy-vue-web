@@ -18,14 +18,14 @@ export default {
         debugger;
         var a=this.$el;//获取页面dom
         var b=this.$data;//获取实体属性
-        console.log(11);
+        console.log('created');
     },
     //页面渲染之后
     mounted() {
         debugger;
         var a=this.$el;
         var b=this.$data;
-        console.log(22);
+        console.log('mounted');
     },
 }
 </script>
