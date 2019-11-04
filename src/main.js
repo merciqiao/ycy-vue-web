@@ -6,6 +6,7 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+
 /**
  * 添加elementui
  */
@@ -19,6 +20,14 @@ Vue.use(ElementUI);
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
+//设置全局请求超时时间
+axios.defaults.timeout = 5000;//1000=1秒
+/**
+ * 添加qs，解决post_form传参
+ */
+import qs from 'qs';
+Vue.prototype.$qs=qs;
+
 
 /**
  * 添加vue-i18n
@@ -53,8 +62,10 @@ window.moment = require('moment')
 /**
  * 引入ckeditor
  */
-import CKEditor from '@ckeditor/ckeditor5-vue';
-Vue.use( CKEditor );
+// import CKEditor from '@ckeditor/ckeditor5-vue';
+// Vue.use( CKEditor );
+
+
 
 new Vue({
   router,

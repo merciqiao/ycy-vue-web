@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import axios from 'axios'
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,11 @@ const routes = [
     name: 'basecontrol',
     component: () => import('../views/6.2/BaseControl.vue')
   },
+  {
+    path: '/axiosdemo',
+    name: 'axiosdemo',
+    component: () => import('../views/6.3/AxiosDemo.vue')
+  },
 ]
 
 const router = new VueRouter({
@@ -57,4 +63,39 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
+/**
+ * 请求拦截器,添加请求头token
+ */
+axios.interceptors.request.use(
+  config => {
+    console.log('>>>请求url:',config.url);
+    var headers = config.headers;
+    if (sessionStorage.getItem("token")) {
+      //请求头设置token
+      headers.token = sessionStorage.getItem("token");
+    }
+    return config;
+  },
+  error => {
+    console.log('>>>请求异常:',error.message);
+    return Promise.reject(error);
+  });
+
+
+/**
+ * 应答拦截器,添加请求头token
+ */
+axios.interceptors.response.use(function (response) {
+  // Do something with response data
+  console.log('<<<请求成功');
+  return response;
+}, error=> {
+  // Do something with response error
+  console.log('<<<异常信息:',error.message);
+  return Promise.reject(error);
+});
+
+
 export default router
