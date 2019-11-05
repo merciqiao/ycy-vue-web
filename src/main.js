@@ -28,7 +28,6 @@ axios.defaults.timeout = 5000;//1000=1秒
 import qs from 'qs';
 Vue.prototype.$qs=qs;
 
-
 /**
  * 添加vue-i18n
  */
@@ -60,10 +59,10 @@ import i18n from './i18n'
 window.moment = require('moment')
 
 /**
- * 引入ckeditor
+ * 引入ckeditor,IE下会报错
  */
-// import CKEditor from '@ckeditor/ckeditor5-vue';
-// Vue.use( CKEditor );
+import CKEditor from '@ckeditor/ckeditor5-vue';
+Vue.use( CKEditor );
 
 
 

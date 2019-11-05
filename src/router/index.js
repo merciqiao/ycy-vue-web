@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import axios from 'axios'
+import Home from '../views/Home.vue'
+
+import RouteDemo2 from '../views/6.4/RouteDemo2'
 
 Vue.use(VueRouter)
 
@@ -55,6 +57,27 @@ const routes = [
     path: '/axiosdemo',
     name: 'axiosdemo',
     component: () => import('../views/6.3/AxiosDemo.vue')
+  },
+  {
+    path: '/axiosapidemo',
+    name: 'axiosapidemo',
+    component: () => import('../views/6.3/AxiosApiDemo.vue')
+  },
+  {
+    path: '/axiosapidemo',
+    name: 'axiosapidemo',
+    component: () => import('../views/6.3/AxiosApiDemo.vue')
+  },
+  {
+    path: '/routedemo',
+    name: 'routedemo',
+    // redirect:'routedemo2',//路由重定向
+    component: () => import('../views/6.4/RouteDemo.vue')//异步引入
+  },
+  {
+    path: '/routedemo2',
+    name: 'routedemo2',
+    component: RouteDemo2//同步引入
   },
 ]
 

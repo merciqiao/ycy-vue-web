@@ -66,6 +66,7 @@ export default {
         callChild(){
             this.$refs.refChild.fromParent('父组件的参数111');
         },
+        //父页查看性别按钮
         showGenders(){
             console.log("父页性别列表是：",this.genderList.toString());
         }
