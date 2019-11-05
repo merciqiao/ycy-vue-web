@@ -77,8 +77,36 @@ const routes = [
   {
     path: '/routedemo2',
     name: 'routedemo2',
-    component: RouteDemo2//同步引入
+    component: RouteDemo2,//同步引入
+    meta:{
+      roles:['admin','组长'],
+      isshow:false
+    }
   },
+  {
+    path: '/fruit',
+    name: 'fruit',
+    component: () => import('../views/6.4/Fruit.vue'),
+    children: [//子路由
+      {
+        path: '/apple',
+        name: 'apple',
+        component: () => import('../views/6.4/Apple.vue')
+      },
+      {
+        path: '/peach',
+        name: 'peach',
+        component: () => import('../views/6.4/Peach.vue')
+      },
+    ]
+  },
+
+  {
+    path: '/banana',
+    name: 'banana',
+    component: () => import('../views/6.4/Banana.vue')
+  },
+
 ]
 
 const router = new VueRouter({
@@ -93,7 +121,7 @@ const router = new VueRouter({
  */
 axios.interceptors.request.use(
   config => {
-    console.log('>>>请求url:',config.url);
+    console.log('>>>请求url:', config.url);
     var headers = config.headers;
     if (sessionStorage.getItem("token")) {
       //请求头设置token
@@ -102,7 +130,7 @@ axios.interceptors.request.use(
     return config;
   },
   error => {
-    console.log('>>>请求异常:',error.message);
+    console.log('>>>请求异常:', error.message);
     return Promise.reject(error);
   });
 
@@ -114,9 +142,9 @@ axios.interceptors.response.use(function (response) {
   // Do something with response data
   console.log('<<<请求成功');
   return response;
-}, error=> {
+}, error => {
   // Do something with response error
-  console.log('<<<异常信息:',error.message);
+  console.log('<<<异常信息:', error.message);
   return Promise.reject(error);
 });
 
