@@ -106,6 +106,21 @@ const routes = [
     name: 'banana',
     component: () => import('../views/6.4/Banana.vue')
   },
+  {
+    path: '/moment',
+    name: 'moment',
+    component: () => import('../views/6.4/Moment.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/homepage/Login.vue')
+  },
+  {
+    path: '/*',//写在最后边
+    name: '404',
+    component: () => import('../views/homepage/404.vue')
+  },
 
 ]
 
@@ -148,5 +163,30 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error);
 });
 
+//路由白名单，不进行权限校验
+var whiteRoutePaths=['/login','/404','/test01'];
+
+/**
+ * 导航守卫
+ */
+router.beforeEach((to, from, next) => {
+  // debugger;
+  //白名单校验
+  if(whiteRoutePaths.includes(to.path)){
+    next();
+  }
+  else{
+    //登陆认证校验
+    var token="getToken";
+    // var token="";
+    if(!token){
+      next('/login');
+    }
+    else{
+     next();
+    }
+  }
+
+})
 
 export default router

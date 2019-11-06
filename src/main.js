@@ -56,7 +56,7 @@ import i18n from './i18n'
 /**
  * 添加moment.js
  */
-window.moment = require('moment')
+Vue.prototype.$moment = require('moment')
 
 /**
  * 引入ckeditor,IE下会报错
