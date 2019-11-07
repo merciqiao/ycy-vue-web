@@ -112,6 +112,11 @@ const routes = [
     component: () => import('../views/6.4/Moment.vue')
   },
   {
+    path: '/store',
+    name: 'store',
+    component: () => import('../views/6.4/Store.vue')
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import('../views/homepage/Login.vue')
