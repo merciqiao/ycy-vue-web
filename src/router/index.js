@@ -117,6 +117,16 @@ const routes = [
     component: () => import('../views/6.4/Store.vue')
   },
   {
+    path: '/ckeditor',
+    name: 'ckeditor',
+    component: () => import('../views/6.4/CKEditor.vue')
+  },
+  {
+    path: '/ckeditor2',
+    name: 'ckeditor2',
+    component: () => import('../views/6.4/CKEditor2.vue')
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import('../views/homepage/Login.vue')
