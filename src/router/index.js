@@ -51,17 +51,24 @@ const routes = [
   {
     path: '/basecontrol',
     name: 'basecontrol',
-    component: () => import('../views/6.2/BaseControl.vue')
+    component: () => import('../views/6.2/BaseControl.vue'),
+    children:[
+      {
+        path: '/stylescope',
+        name: 'stylescope',
+        component: () => import('../views/6.2/StyleScope.vue')
+      },
+      {
+        path: '/stylenoscope',
+        name: 'stylenoscope',
+        component: () => import('../views/6.2/StyleNoScope.vue')
+      },
+    ]
   },
   {
     path: '/axiosdemo',
     name: 'axiosdemo',
     component: () => import('../views/6.3/AxiosDemo.vue')
-  },
-  {
-    path: '/axiosapidemo',
-    name: 'axiosapidemo',
-    component: () => import('../views/6.3/AxiosApiDemo.vue')
   },
   {
     path: '/axiosapidemo',
@@ -131,6 +138,7 @@ const routes = [
     name: 'login',
     component: () => import('../views/homepage/Login.vue')
   },
+ 
   {
     path: '/*',//写在最后边
     name: '404',

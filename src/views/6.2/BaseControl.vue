@@ -63,6 +63,11 @@
         <el-table-column prop="address" label="地址"></el-table-column>
       </el-table>
     </div>
+    <div>
+      子页面
+      <br>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
